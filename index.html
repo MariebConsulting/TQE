@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>True Quality Exteriors LLC | Roofing, Siding & Construction</title>
+  <meta name="description" content="True Quality Exteriors LLC — Roofing, siding, gutters, windows, pole barns, framing, decks, and exterior construction in Northeast Indiana. Call (260) 573-5595." />
+
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --card:#ffffff;
+      --border:#e5e9f2;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --accent:#2563eb;
+      --accent-soft:#e0e7ff;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --shadow-soft:0 8px 22px rgba(0,0,0,.06);
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:20px}
+
+    /* NAV */
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:#ffffffcc;
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .brand{display:flex;flex-direction:column;line-height:1.1}
+    .brand strong{font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+    .brand span{font-size:12px;color:var(--muted)}
+    .links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .links a{
+      font-size:13px;
+      padding:8px 10px;
+      border-radius:10px;
+      color:var(--muted);
+    }
+    .links a:hover{background:#f1f5f9;color:var(--text)}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:12px;
+      font-weight:700;
+      border:1px solid var(--border);
+      background:#fff;
+      box-shadow:var(--shadow-soft);
+      cursor:pointer;
+    }
+    .btn.primary{
+      background:var(--accent);
+      color:#fff;
+      border-color:var(--accent);
+      box-shadow:var(--shadow);
+    }
+    .btn.primary:hover{filter:brightness(.96)}
+    .btn.ghost{
+      background:#fff;
+      color:var(--text);
+    }
+
+    /* HERO */
+    .hero{padding:48px 0 24px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+    }
+    @media(max-width:900px){ .hero-grid{grid-template-columns:1fr} }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .pad{padding:22px}
+
+    h1{margin:0 0 10px;font-size:clamp(28px,4vw,44px);letter-spacing:-.02em}
+    h2{margin:0 0 14px;font-size:20px}
+    .sub{color:var(--muted);font-size:15px;margin:0}
+    .note{font-size:13px;color:var(--muted);margin:10px 0 0}
+
+    .cta{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+
+    /* IMAGE FRAMES (NO EXTERNAL LINKS; NO BROKEN ICONS) */
+    .imgFrame{
+      width:100%;
+      aspect-ratio:16/9;
+      background:linear-gradient(135deg,#e5e7eb,#f8fafc);
+      border-bottom:1px solid var(--border);
+      overflow:hidden;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .imgFrame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      display:block;
+    }
+    /* If image fails, hide it and show the placeholder label */
+    .imgFrame img.is-hidden{display:none}
+    .imgFrame .ph{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:12px;
+      color:#6b7280;
+      font-size:13px;
+      font-weight:700;
+    }
+
+    section{padding:26px 0}
+
+    /* SERVICES SUMMARY */
+    .serviceLine{
+      margin-top:12px;
+      padding:14px 18px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+      font-weight:650;
+      font-size:14px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    /* GRID */
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media(max-width:900px){ .grid-3{grid-template-columns:1fr} }
+
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .tag{
+      font-size:12px;
+      font-weight:700;
+      background:var(--accent-soft);
+      color:var(--accent);
+      padding:6px 10px;
+      border-radius:999px;
+    }
+
+    .resultLine{
+      margin:10px 0;
+      padding:10px 12px;
+      border:1px solid rgba(37,99,235,.18);
+      background:rgba(37,99,235,.06);
+      border-radius:12px;
+      font-size:13px;
+      font-weight:800;
+      color:#1f3a8a;
+    }
+    ul{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
+    li{margin:6px 0}
+
+    /* Before/After */
+    .baGrid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:12px;
+      padding:14px;
+      background:#fff;
+      border-top:1px solid var(--border);
+    }
+    @media(max-width:900px){ .baGrid{grid-template-columns:1fr} }
+
+  .baHead{
+  display:flex;
+  align-items:flex-start;   /* 🔑 key fix */
+  justify-content:space-between;
+  gap:12px;
+  padding:14px;
+  background:#fff;
+  border-bottom:1px solid var(--border);
+}
+
+    .baTitle{font-weight:800}
+    .baBadges{display:flex;gap:8px;flex-wrap:wrap}
+    .baBadge{
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:#f8fafc;
+      color:#334155;
+  }
+    .baBadges{
+     display:flex;
+     gap:8px;
+     flex-wrap:nowrap;
+  }
+
+    .baBadge.after{
+      background:var(--accent-soft);
+      color:var(--accent);
+      border-color:rgba(37,99,235,.22);
+    }
+
+    /* FORM */
+    form{display:grid;gap:10px}
+    input,textarea{
+      padding:12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      font-size:14px;
+      width:100%;
+    }
+    textarea{min-height:120px}
+
+    footer{padding:40px 0;font-size:12px;color:var(--muted)}
+  </style>
+</head>
+
+<body>
+
+<!--
+IMAGE FILE NAMES TO SWAP (put these in /images/):
+  images/hero.jpg
+
+  images/project-01.jpg
+  images/project-02.jpg
+  images/project-03.jpg
+  images/project-04.jpg
+  images/project-05.jpg
+  images/project-06.jpg
+
+  images/ba-01-before.jpg
+  images/ba-01-after.jpg
+  images/ba-02-before.jpg
+  images/ba-02-after.jpg
+  images/ba-03-before.jpg
+  images/ba-03-after.jpg
+-->
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <strong>TRUE QUALITY EXTERIORS LLC</strong>
+      <span>Spencerville, IN • (260) 573-5595</span>
+    </div>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#projects">Project Highlights</a>
+      <a href="#before-after">Before & After</a>
+      <a href="#contact">Contact</a>
+      <a class="btn primary" href="tel:+12605735595">Call Now</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- HERO (BUBBLES REMOVED) -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div class="card">
+        <div class="pad">
+          <h1>Exterior construction done right.</h1>
+          <p class="sub">
+            Roofing, siding, gutters, windows, pole barns, framing, decks, and exterior construction support
+            throughout Northeast Indiana. Honest quotes. Solid work. Clean job sites.
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="#contact">Request a Quote</a>
+            <a class="btn ghost" href="sms:+12605735595">Text Us</a>
+          </div>
+
+          <p class="note">
+            We'll respond as soon as message is received typicall.
+          </p>
+    </div>
+      </div>
+
+      <div class="card">
+        <div class="imgFrame">
+          <img src="images/hero.jpg" alt="True Quality Exteriors job site" loading="lazy"
+               onerror="this.classList.add('is-hidden'); this.parentElement.querySelector('.ph').style.display='flex';">
+          <div class="ph" style="display:none;">Hero Image Placeholder<br>images/hero.jpg</div>
+        </div>
+        <div class="pad">
+          <p class="sub">
+            Serving Spencerville, Fort Wayne, and surrounding areas.
+            Residential and light commercial projects welcome.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES (CONDENSED + INCLUDES ADDITIONAL ITEMS) -->
+  <section id="services">
+    <h2>Services</h2>
+    <p class="sub">If it’s on the outside of a building, we handle it — and we do it clean.</p>
+
+    <div class="serviceLine">
+      Roofing • Siding & Trim • Soffit & Fascia • Gutters & Downspouts • Windows & Doors • Storm Damage Repairs • Pole Barns • Framing • Decks • New Construction
+    </div>
+  </section>
+
+  <!-- PROJECT HIGHLIGHTS + BUTTON TO PROJECTS PAGE -->
+  <section id="projects">
+    <h2>Project Highlights</h2>
+    <p class="sub">A few examples of our work — clean installs, strong structure, and results that hold up.</p>
+
+    <div class="cta" style="margin-top:14px;">
+      <!-- change href to your actual page later -->
+      <a class="btn primary" href="projects.html">View All Projects</a>
+      <a class="btn ghost" href="#before-after">See Before & After</a>
+    </div>
+
+    <div class="grid-3" style="margin-top:14px;">
+
+      <div class="card">
+        <div class="imgFrame">
+          <img src="images/project-01.jpg" alt="Project photo 1" loading="lazy"
+               onerror="this.classList.add('is-hidden'); this.parentElement.querySelector('.ph').style.display='flex';">
+          <div class="ph" style="display:none;">Project Photo Placeholder<br>images/project-01.jpg</div>
+        </div>
+        <div class="pad">
+          <strong>Storm-Damaged Roof</strong>
+          <div class="tags"><span class="tag">Roofing</span><span class="tag">Storm Repair</span></div>
+          <div class="resultLine">Result: Leak resolved • Clean edge details • Ready for next season</div>
+          <ul>
+            <li>Inspection + clear scope</li>
+            <li>Flashing and vulnerable areas corrected</li>
+            <li>Site left clean</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="imgFrame">
+          <img src="images/project-02.jpg" alt="Project photo 2" loading="lazy"
+               onerror="this.classList.add('is-hidden'); this.parentElement.querySelector('.ph').style.display='flex';">
+          <div class="ph" style="display:none;">Project Photo Placeholder<br>images/project-02.jpg</div>
+        </div>
+        <div class="pad">
+          <strong>Siding + Trim Upgrade</strong>
+          <div class="tags"><span class="tag">Siding</span><span class="tag">Trim</span></div>
+          <div class="resultLine">Result: Sharper curb appeal • Edges sealed up right</div>
+          <ul>
+            <li>Problem areas removed and repaired</li>
+            <li>Wrap/flash details improved</li>
+            <li>Clean lines on corners and edges</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="imgFrame">
+          <img src="images/project-03.jpg" alt="Project photo 3" loading="lazy"
+               onerror="this.classList.add('is-hidden'); this.parentElement.querySelector('.ph').style.display='flex';">
+          <div class="ph" style="display:none;">Project Photo Placeholder<br>images/project-03.jpg</div>
+        </div>
+        <div class="pad">
+          <strong>Deck Repair</strong>
+          <div class="tags"><span class="tag">Decks</span><span class="tag">Repairs</span></div>
+          <div class="resultLine">Result: Solid footing • Safe connections • Clean finish</div>
+          <ul>
+            <li>Structural check first (ledger, posts, framing)</li>
+            <li>Reinforced connections and replaced weak members</li>
+            <li>Clean cuts and solid fastening</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="imgFrame">
+          <img src="images/project-04.jpg" alt="Project photo 4" loading="lazy"
+               onerror="this.classList.add('is-hidden'); this.parentElement.querySelector('.ph').style.display='flex';">
+          <div class="ph" style="display:none;">Project Photo Placeholder<br>images/project-04.jpg</div>
+        </div>
+        <div class="pad">
+          <strong>Gutters + Drainage</strong>
+          <div class="tags"><span class="tag">Gutters</span><span class="tag">Protection</span></div>
+          <div class="resultLine">Result: Water moved away • Cleaner runoff • Better protection</div>
+          <ul>
+            <li>Pitch + runoff reviewed</li>
+            <li>Solid hangers and clean lines</li>
+            <li>Downspouts routed to move water away</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="imgFrame">
+          <img src="images/project-05.jpg" alt="Project photo 5" loading="lazy"
+               onerror="this.classList.add('is-hidden'); this.parentElement.querySelector('.ph').style.display='flex';">
+          <div class="ph" style="display:none;">Project Photo Placeholder<br>images/project-05.jpg</div>
+        </div>
+        <div class="pad">
+          <strong>Window Replacement</strong>
+          <div class="tags"><span class="tag">Windows</span><span class="tag">Trim</span></div>
+          <div class="resultLine">Result: Better seal • Cleaner finish • Reduced drafts</div>
+          <ul>
+            <li>Measurements verified</li>
+            <li>Proper flashing/sealing</li>
+            <li>Trim finished cleanly</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="imgFrame">
+          <img src="images/project-06.jpg" alt="Project photo 6" loading="lazy"
+               onerror="this.classList.add('is-hidden'); this.parentElement.querySelector('.ph').style.display='flex';">
+          <div class="ph" style="display:none;">Project Photo Placeholder<br>images/project-06.jpg</div>
+        </div>
+        <div class="pad">
+          <strong>Pole Barn / Framing</strong>
+          <div class="tags"><span class="tag">Pole Barns</span><span class="tag">Framing</span></div>
+          <div class="resultLine">Result: Square layout • Strong frame • Built for real use</div>
+          <ul>
+            <li>Layout set cleanly and square</li>
+            <li>Framing coordinated for efficient progress</li>
+            <li>Durable structure for real-world use</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BEFORE & AFTER -->
+  <section id="before-after">
+    <h2>Before & After</h2>
+    <p class="sub">Clean comparisons. Keep “before” and “after” from the same angle for the best effect.</p>
+
+    <div class="grid-3" style="margin-top:14px;">
+
+      <!-- BA 1 -->
+      <div class="card">
+        <div class="baHead">
+          <div class="baTitle">Roof Replacement</div>
+          <div class="baBadges">
+            <span class="baBadge">Before</span>
+            <span class="baBadge after">After</span>
+          </div>
+        </div>
+        <div class="baGrid">
+          <div class="imgFrame">
+            <img src="images/ba-01-before.jpg" alt="Before photo 1" loading="lazy"
+                 onerror="this.classList.add('is-hidden'); this.parentElement.querySelector('.ph').style.display='flex';">
+            <div class="ph" style="display:none;">Before<br>images/ba-01-before.jpg</div>
+          </div>
+          <div class="imgFrame">
+            <img src="images/ba-01-after.jpg" alt="After photo 1" loading="lazy"
+                 onerror="this.classList.add('is-hidden'); this.parentElement.querySelector('.ph').style.display='flex';">
+            <div class="ph" style="display:none;">After<br>images/ba-01-after.jpg</div>
+          </div>
+        </div>
+        <div class="pad">
+          <div class="resultLine">Result: Better protection • Cleaner finish • Ready for storms</div>
+        </div>
+      </div>
+
+      <!-- BA 2 -->
+      <div class="card">
+        <div class="baHead">
+          <div class="baTitle">Siding & Trim</div>
+          <div class="baBadges">
+            <span class="baBadge">Before</span>
+            <span class="baBadge after">After</span>
+          </div>
+        </div>
+        <div class="baGrid">
+          <div class="imgFrame">
+            <img src="images/ba-02-before.jpg" alt="Before photo 2" loading="lazy"
+                 onerror="this.classList.add('is-hidden'); this.parentElement.querySelector('.ph').style.display='flex';">
+            <div class="ph" style="display:none;">Before<br>images/ba-02-before.jpg</div>
+          </div>
+          <div class="imgFrame">
+            <img src="images/ba-02-after.jpg" alt="After photo 2" loading="lazy"
+                 onerror="this.classList.add('is-hidden'); this.parentElement.querySelector('.ph').style.display='flex';">
+            <div class="ph" style="display:none;">After<br>images/ba-02-after.jpg</div>
+          </div>
+        </div>
+        <div class="pad">
+          <div class="resultLine">Result: Sharper curb appeal • Edges sealed up right</div>
+        </div>
+      </div>
+
+      <!-- BA 3 -->
+      <div class="card">
+        <div class="baHead">
+          <div class="baTitle">Deck Repair</div>
+          <div class="baBadges">
+            <span class="baBadge">Before</span>
+            <span class="baBadge after">After</span>
+          </div>
+        </div>
+        <div class="baGrid">
+          <div class="imgFrame">
+            <img src="images/ba-03-before.jpg" alt="Before photo 3" loading="lazy"
+                 onerror="this.classList.add('is-hidden'); this.parentElement.querySelector('.ph').style.display='flex';">
+            <div class="ph" style="display:none;">Before<br>images/ba-03-before.jpg</div>
+          </div>
+          <div class="imgFrame">
+            <img src="images/ba-03-after.jpg" alt="After photo 3" loading="lazy"
+                 onerror="this.classList.add('is-hidden'); this.parentElement.querySelector('.ph').style.display='flex';">
+            <div class="ph" style="display:none;">After<br>images/ba-03-after.jpg</div>
+          </div>
+        </div>
+        <div class="pad">
+          <div class="resultLine">Result: Solid footing • Safe connections • Clean finish</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="note" style="margin-top:14px">
+      All images are company owned projects located in your area.
+    </p>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Request a Quote</h2>
+    <div class="grid-3">
+      <div class="card" style="grid-column:span 2">
+        <div class="pad">
+          <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <input name="name" placeholder="Your Name" required>
+            <input name="phone" placeholder="Phone Number" required>
+            <input name="address" placeholder="Project Address" required>
+            <textarea name="message" placeholder="Tell us about your project" required></textarea>
+            <button class="btn primary" type="submit">Send Request</button>
+          </form>
+          <p class="note">Or call: <a href="tel:+12605735595">(260) 573-5595</a></p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="pad">
+          <p class="sub"><strong>Phone:</strong><br>(260) 573-5595</p>
+          <p class="sub"><strong>Service Area:</strong><br>Spencerville • Fort Wayne • Northeast Indiana</p>
+          <p class="note">Add Google Business Profile link here once claimed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <script>document.write(new Date().getFullYear())</script> True Quality Exteriors LLC
+  </footer>
+
+</main>
+
+</body>
+</html>
+
