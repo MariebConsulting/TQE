@@ -49,69 +49,18 @@
       align-items:center;
       justify-content:space-between;
       gap:12px;
+      position:relative; /* needed for dropdown positioning */
     }
-/* a11y helper */
-.srOnly{
-  position:absolute;
-  width:1px;height:1px;
-  padding:0;margin:-1px;
-  overflow:hidden;clip:rect(0,0,0,0);
-  white-space:nowrap;border:0;
-}
-
-/* default: desktop */
-.navToggle{ display:none; }
-
-/* IMPORTANT: stop wrapping in header on desktop too */
-.links{ flex-wrap:nowrap; }
-
-/* mobile nav */
-@media (max-width: 820px){
-  .nav{ position:relative; }
-
-  /* show hamburger */
-  .navToggle{ display:inline-flex; }
-
-  /* hide menu by default */
-  .links{
-    display:none;
-    position:absolute;
-    top:100%;
-    left:0;
-    right:0;
-    margin-top:10px;
-    padding:12px;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:16px;
-    box-shadow:var(--shadow);
-    flex-direction:column;
-    align-items:stretch;
-    gap:8px;
-  }
-
-  /* open state */
-  .links.open{ display:flex; }
-
-  /* bigger tap targets */
-  .links a{
-    padding:12px 12px;
-    font-size:14px;
-    border:1px solid rgba(0,0,0,.06);
-    border-radius:12px;
-  }
-
-  /* make Call Now full-width on mobile */
-  .links .btn.primary{
-    width:100%;
-    justify-content:center;
-  }
-}
-
-    .brand{display:flex;flex-direction:column;line-height:1.1}
+    .brand{display:flex;flex-direction:column;line-height:1.1; min-width:0}
     .brand strong{font-size:14px;letter-spacing:.12em;text-transform:uppercase}
     .brand span{font-size:12px;color:var(--muted)}
-    .links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+
+    .links{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:nowrap; /* stop wrapping */
+    }
     .links a{
       font-size:13px;
       padding:8px 10px;
@@ -120,6 +69,7 @@
     }
     .links a:hover{background:#f1f5f9;color:var(--text)}
 
+    /* Buttons */
     .btn{
       display:inline-flex;
       align-items:center;
@@ -140,9 +90,64 @@
       box-shadow:var(--shadow);
     }
     .btn.primary:hover{filter:brightness(.96)}
-    .btn.ghost{
-      background:#fff;
-      color:var(--text);
+    .btn.ghost{background:#fff;color:var(--text)}
+
+    /* a11y helper */
+    .srOnly{
+      position:absolute;
+      width:1px;height:1px;
+      padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);
+      white-space:nowrap;border:0;
+    }
+
+    /* hamburger hidden on desktop */
+    .navToggle{ display:none; }
+
+    /* mobile nav */
+    @media (max-width: 820px){
+      /* show hamburger */
+      .navToggle{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding:10px 12px;
+        border-radius:12px;
+      }
+
+      /* hide menu by default */
+      .links{
+        display:none;
+        position:absolute;
+        top:calc(100% + 10px);
+        left:20px;
+        right:20px;
+        padding:12px;
+        background:#fff;
+        border:1px solid var(--border);
+        border-radius:16px;
+        box-shadow:var(--shadow);
+        flex-direction:column;
+        align-items:stretch;
+        gap:8px;
+      }
+
+      /* open state */
+      .links.open{ display:flex; }
+
+      /* bigger tap targets */
+      .links a{
+        padding:12px 12px;
+        font-size:14px;
+        border:1px solid rgba(0,0,0,.06);
+        border-radius:12px;
+      }
+
+      /* make Call Now full-width on mobile */
+      .links .btn.primary{
+        width:100%;
+        justify-content:center;
+      }
     }
 
     /* HERO */
@@ -256,18 +261,18 @@
     }
     @media(max-width:900px){ .baGrid{grid-template-columns:1fr} }
 
-  .baHead{
-  display:flex;
-  align-items:flex-start;   /* 🔑 key fix */
-  justify-content:space-between;
-  gap:12px;
-  padding:14px;
-  background:#fff;
-  border-bottom:1px solid var(--border);
-}
+    .baHead{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+      padding:14px;
+      background:#fff;
+      border-bottom:1px solid var(--border);
+    }
 
     .baTitle{font-weight:800}
-    .baBadges{display:flex;gap:8px;flex-wrap:wrap}
+    .baBadges{display:flex;gap:8px;flex-wrap:nowrap}
     .baBadge{
       font-size:12px;
       font-weight:900;
@@ -278,13 +283,7 @@
       border:1px solid var(--border);
       background:#f8fafc;
       color:#334155;
-  }
-    .baBadges{
-     display:flex;
-     gap:8px;
-     flex-wrap:nowrap;
-  }
-
+    }
     .baBadge.after{
       background:var(--accent-soft);
       color:var(--accent);
@@ -308,35 +307,21 @@
 
 <body>
 
-<!--
-IMAGE FILE NAMES TO SWAP (put these in /images/):
-  images/hero.jpg
-
-  images/project-01.jpg
-  images/project-02.jpg
-  images/project-03.jpg
-  images/project-04.jpg
-  images/project-05.jpg
-  images/project-06.jpg
-
-  images/ba-01-before.jpg
-  images/ba-01-after.jpg
-  images/ba-02-before.jpg
-  images/ba-02-after.jpg
-  images/ba-03-before.jpg
-  images/ba-03-after.jpg
--->
-
 <header>
   <div class="nav">
     <div class="brand">
       <strong>TRUE QUALITY EXTERIORS LLC</strong>
       <span>Spencerville, IN • (260) 573-5595</span>
     </div>
-    <div class="links">
+
+    <button class="btn ghost navToggle" type="button" aria-expanded="false" aria-controls="navMenu">
+      ☰ <span class="srOnly">Menu</span>
+    </button>
+
+    <div class="links" id="navMenu">
       <a href="#services">Services</a>
       <a href="#projects">Project Highlights</a>
-      <a href="#before-after">Before & After</a>
+      <a href="#before-after">Before &amp; After</a>
       <a href="#contact">Contact</a>
       <a class="btn primary" href="tel:+12605735595">Call Now</a>
     </div>
@@ -345,7 +330,7 @@ IMAGE FILE NAMES TO SWAP (put these in /images/):
 
 <main class="wrap">
 
-  <!-- HERO (BUBBLES REMOVED) -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-grid">
       <div class="card">
@@ -362,9 +347,9 @@ IMAGE FILE NAMES TO SWAP (put these in /images/):
           </div>
 
           <p class="note">
-            We'll respond as soon as message is received typicall.
+            We'll respond as soon as message is received, typically within 48 hours.
           </p>
-    </div>
+        </div>
       </div>
 
       <div class="card">
@@ -383,7 +368,7 @@ IMAGE FILE NAMES TO SWAP (put these in /images/):
     </div>
   </section>
 
-  <!-- SERVICES (CONDENSED + INCLUDES ADDITIONAL ITEMS) -->
+  <!-- SERVICES -->
   <section id="services">
     <h2>Services</h2>
     <p class="sub">If it’s on the outside of a building, we handle it — and we do it clean.</p>
@@ -393,15 +378,14 @@ IMAGE FILE NAMES TO SWAP (put these in /images/):
     </div>
   </section>
 
-  <!-- PROJECT HIGHLIGHTS + BUTTON TO PROJECTS PAGE -->
+  <!-- PROJECT HIGHLIGHTS -->
   <section id="projects">
     <h2>Project Highlights</h2>
     <p class="sub">A few examples of our work — clean installs, strong structure, and results that hold up.</p>
 
     <div class="cta" style="margin-top:14px;">
-      <!-- change href to your actual page later -->
       <a class="btn primary" href="projects.html">View All Projects</a>
-      <a class="btn ghost" href="#before-after">See Before & After</a>
+      <a class="btn ghost" href="#before-after">See Before &amp; After</a>
     </div>
 
     <div class="grid-3" style="margin-top:14px;">
@@ -519,12 +503,11 @@ IMAGE FILE NAMES TO SWAP (put these in /images/):
 
   <!-- BEFORE & AFTER -->
   <section id="before-after">
-    <h2>Before & After</h2>
+    <h2>Before &amp; After</h2>
     <p class="sub">Clean comparisons. Keep “before” and “after” from the same angle for the best effect.</p>
 
     <div class="grid-3" style="margin-top:14px;">
 
-      <!-- BA 1 -->
       <div class="card">
         <div class="baHead">
           <div class="baTitle">Roof Replacement</div>
@@ -550,10 +533,9 @@ IMAGE FILE NAMES TO SWAP (put these in /images/):
         </div>
       </div>
 
-      <!-- BA 2 -->
       <div class="card">
         <div class="baHead">
-          <div class="baTitle">Siding & Trim</div>
+          <div class="baTitle">Siding &amp; Trim</div>
           <div class="baBadges">
             <span class="baBadge">Before</span>
             <span class="baBadge after">After</span>
@@ -576,7 +558,6 @@ IMAGE FILE NAMES TO SWAP (put these in /images/):
         </div>
       </div>
 
-      <!-- BA 3 -->
       <div class="card">
         <div class="baHead">
           <div class="baTitle">Deck Repair</div>
@@ -640,6 +621,7 @@ IMAGE FILE NAMES TO SWAP (put these in /images/):
   </footer>
 
 </main>
+
 <script>
   (function(){
     const btn = document.querySelector(".navToggle");
@@ -651,7 +633,7 @@ IMAGE FILE NAMES TO SWAP (put these in /images/):
       btn.setAttribute("aria-expanded", String(isOpen));
     });
 
-    // close after clicking a link (nice on mobile)
+    // close after clicking a link
     menu.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", () => {
         menu.classList.remove("open");
@@ -671,4 +653,5 @@ IMAGE FILE NAMES TO SWAP (put these in /images/):
 
 </body>
 </html>
+
 
